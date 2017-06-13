@@ -4,19 +4,18 @@ Glue B/w View and Model
 */
 window.addEventListener("load",bindEvents);
 function bindEvents(){
-	var btArray = document.getElementsByTagName("button");
+	var btArray = document.getElementsByClassName("operation");
 	for(var i = 0; i<btArray.length; i++){
 		btArray[i].addEventListener("click",doOperation);
 	}
 }
 function doOperation(){
-	var opr = this.getAttribute("data-opr");
-	console.log("Opr is ",opr);
+	
+	var opr = this.innerHTML;
 	var firstNo = document.getElementById("firstno").value;
 	var secondNo = document.getElementById("secondno").value;
 	var result= 0;
-	
-	result = calcObject[opr](firstNo,secondNo);
-
+	result= commonOperation(firstNo,secondNo,opr);
 	document.getElementById("result").innerHTML = result;
 }
+
