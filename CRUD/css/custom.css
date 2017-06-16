@@ -1,5 +1,8 @@
-.clearfields {}
+    .clearfields {}
 
 .red {
     background-color: red;
 }
+
+.showcursor {
+    cursor: pointer;

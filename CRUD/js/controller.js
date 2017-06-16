@@ -29,6 +29,7 @@ function addItem() {
 
     var deleteImg = document.createElement("img");
     deleteImg.src = '../images/delete.png';
+    deleteImg.className = "showcursor";
     deleteImg.addEventListener("click", markForDeletion);
     tr.insertCell(index).append(deleteImg);
     tr.insertCell(index).innerHTML = "<img src='../images/edit.png'>";
