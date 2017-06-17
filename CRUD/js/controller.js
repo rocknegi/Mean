@@ -11,7 +11,7 @@ window.addEventListener("load", () => {
 
 function clearClass() {
     var tbody = document.getElementById("itemlist");
-    tbody.childNodes
+    localStorage.clear();
 
 }
 
