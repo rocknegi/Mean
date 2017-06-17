@@ -1,12 +1,26 @@
 window.addEventListener("load", () => {
     document.getElementById("add").addEventListener("click", addItem);
     document.getElementById("cl").addEventListener("click", clearClass);
+    document.getElementById("delete").addEventListener("click", deleteRecord);
     clearFields();
 });
 
 function clearClass() {
     var tbody = document.getElementById("itemlist");
     tbody.childNodes
+}
+
+function deleteRecord() {
+    itemOperations.delete();
+
+    printTable(itemOperations.itemList);
+
+}
+
+function printTable(itemArray) {
+    document.getElementById("itemlist").innerHTML = "";
+    itemArray.forEach(printRecord)
+
 }
 
 function addItem() {

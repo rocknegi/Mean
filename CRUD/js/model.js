@@ -5,7 +5,6 @@ function Item(id, name, desc, price, qt, url) {
     this.price = price;
     this.qt = qt;
     this.url = url;
-    //this.markForDeletion = true;
 }
 
 
@@ -21,6 +20,11 @@ var itemOperations = {
     },
     getLastObject: function () {
         return this.itemList[this.itemList.length - 1];
+    },
+    delete: function () {
+        this.itemList = this.itemList.filter(function (itemObject) {
+            return itemObject.markForDeletion == false;
+        });
     },
     getId: function () {
         return this.id;
