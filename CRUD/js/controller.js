@@ -2,6 +2,7 @@ window.addEventListener("load", () => {
     document.getElementById("add").addEventListener("click", addItem);
     document.getElementById("cl").addEventListener("click", clearClass);
     document.getElementById("delete").addEventListener("click", deleteRecord);
+    document.getElementById("sort").addEventListener("click", sortRecord);
     clearFields();
 });
 
@@ -21,6 +22,23 @@ function printTable(itemArray) {
     document.getElementById("itemlist").innerHTML = "";
     itemArray.forEach(printRecord)
 
+}
+
+function sortRecord() {
+    printTable(itemOperations.sortByPrice());
+}
+
+function printRecord(itemObject) {
+    var tbody = document.getElementById("itemlist");
+    var tr = tbody.insertRow();
+    var index = 0;
+    for (var key in itemObject) {
+        if (key == 'markForDeletion') {
+            continue;
+        }
+        tr.insertCell(index).innerHTML = itemObject[key];
+        index++;
+    }
 }
 
 function addItem() {

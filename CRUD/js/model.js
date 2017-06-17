@@ -26,6 +26,13 @@ var itemOperations = {
             return itemObject.markForDeletion == false;
         });
     },
+    sortByPrice: function () {
+        this.itemList.sort(function (itemFirst, itemSecond) {
+
+            return itemFirst.price - itemSecond.price;
+        });
+        return this.itemList;
+    },
     getId: function () {
         return this.id;
     }
