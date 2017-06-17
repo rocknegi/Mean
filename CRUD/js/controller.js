@@ -3,12 +3,16 @@ window.addEventListener("load", () => {
     document.getElementById("cl").addEventListener("click", clearClass);
     document.getElementById("delete").addEventListener("click", deleteRecord);
     document.getElementById("sort").addEventListener("click", sortRecord);
+    document.getElementById("save").addEventListener("click", save);
+    document.getElementById("load").addEventListener("click", load);
+    load();
     clearFields();
 });
 
 function clearClass() {
     var tbody = document.getElementById("itemlist");
     tbody.childNodes
+
 }
 
 function deleteRecord() {
@@ -40,6 +44,26 @@ function printRecord(itemObject) {
         index++;
     }
 }
+
+function save() {
+    var json = JSON.stringify(itemOperations.itemList);
+    localStorage.items = json;
+}
+
+function load() {
+    if (localStorage) {
+        if (localStorage.items) {
+            var items = JSON.parse(localStorage.items);
+            itemOperations.itemList = items;
+            printTable(itemOperations.itemList);
+        } else {
+            alert("there is no data to get...");
+        }
+    } else {
+        alert("Ur Browser Doesnot Support HTML5 LocalStorage...");
+    }
+}
+
 
 function addItem() {
     var itemNo = document.getElementById("itemno").value;

@@ -33,6 +33,13 @@ var itemOperations = {
         });
         return this.itemList;
     },
+
+    searchById: function (itemno) {
+        var itemArr = this.itemList.filter(function (itemObject) {
+            return itemObject.id == itemno;
+        });
+        itemArr[0].markForDeletion = !itemArr[0].markForDeletion;
+    },
     getId: function () {
         return this.id;
     }
