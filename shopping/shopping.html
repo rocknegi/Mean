@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping</title>
+    <script src="libs/angular.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        
+    var app2 = angular.module("myapp2",[]);
+        app2.factory("myfactory",()=>{
+            var object = {
+                getMenu(){
+           return   [{id:1,name:"About Us",link:"pages/AboutUs.html",status:'Y'},{id:2,name:"Contact Us",link:"pages/ContactUs.html",status:'Y'}];
+			},
+                
+		};
+		
+		return object;
+		
+	});
+        
+    var app = angular.module("myapp",["myapp2"]); 
+        
+	app.controller("myctrl",($scope,myfactory)=>{
+		$scope.menu = myfactory.getMenu();
+	});	
+        app.controller("shoes",($scope,myfactory)=>{
+            $scope.shoes = {
+                id:1,name:"shoes",link:"pages/shoes.html",status:'Y'
+            }
+            
+          
+        });
+        
+        app.controller("mobiles",($scope,myfactory)=>{
+            $scope.mobiles ={
+        name:"mobiles",link:"pages/mobiles.html"
+      }
+           
+        });
+        
+        app.controller("clothes",($scope,myfactory)=>{
+            $scope.clothes ={
+        name:"clothes",link:"pages/clothes.html"
+      }
+           
+        });
+		
+	</script>
+</head>
+        
+        
+<body background="images/bg.jpg " ng-app="myapp" >
+   
+    <fieldset>
+        <legend>ZZ</legend>
+        <table>
+            <tr>
+               <div style="text-align:right" ng-controller="myctrl">
+                <li ng-repeat="i in menu">
+				<a href="{{i.link}}">{{i.name}}</a>
+               </li>
+          
+            </div>
+                 <div ng-controller="shoes">
+                  
+                   <li >
+				<a href="{{shoes.link}}">{{shoes.name}}</a>
+               </li>
+                
+                 </div>
+                 
+                 <div ng-controller="mobiles">
+                  
+                   <li >
+				<a href="{{mobiles.link}}">{{mobiles.name}}</a>
+               </li>
+                
+                 </div>
+                 
+                  <div ng-controller="clothes">
+                  
+                   <li >
+				<a href="{{clothes.link}}">{{clothes.name}}</a>
+               </li>
+                
+                 </div>
+                   
+
+               
+            </tr>
+            
+        </table>
+        
+    </fieldset>
+</body>
+</html>
