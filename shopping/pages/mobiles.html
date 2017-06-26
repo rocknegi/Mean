@@ -3,11 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Mobiles</title>
+    <script src="../libs/angular.min.js"></script>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <script>
+        var app2 = angular.module("myapp2",[]);
+	app2.factory("myfactory",()=>{
+		var object = {
+            descArr:[],
+
+            send(desc){
+                var add = desc;
+                this.addInArray(add);
+                return add;
+            },
+            addInArray(add){
+                this.descArr.push(add);
+
+            },
+            getdescArr(){
+                return this.descArr;
+            }
+
+        }
+        return object;
+        });
+    var app = angular.module("phone",["myapp2"]);
+        app.controller("myctrl1",($scope,$rootScope,myfactory)=>{
+            $scope.send=()=>{
+                var add = myfactory.send($scope.desc);
+                $scope.descArr = myfactory.getdescArr();
+            }
+
+        });
+
+    </script>
 </head>
-<body>
-  <p>  
+<body ng-app ="phone">
+  <p>
    <img src="https://rukminim1.flixcart.com/image/704/704/mobile/f/q/h/apple-iphone-7-plus-na-original-imaemz66zzbftnnt.jpeg?q=70" alt="Apple iPhone 7 Plus (Black, 128 GB)" class="left">
    <h1>Apple iPhone 7 Plus (Black, 128 GB)</h1>
    <h3>₹67,499 ₹82,000 17% off </h3>
@@ -15,8 +48,8 @@
    With better cameras, long-lasting battery life, powerful processor and enhanced stereo speakers, the iPhone 7 Plus takes your iPhone experience till date to the next level. Thanks to its vibrant display, sleek design and a water- and splash-resistant enclosure, this smartphone looks every bit as impressive as it is.
    </p>
    
-   <label for="">RATINGS</label>
-   
+  <h3>RATINGS</h3>
+   <table>
   <div class="stars">
   <form action="">
    
@@ -30,8 +63,29 @@
     <label class="star star-2" for="star-2"></label>
     <input class="star star-1" id="star-1" type="radio" name="star"/>
     <label class="star star-1" for="star-1"></label>
+
   </form>
 </div>
+   <div ng-controller = "myctrl1">
+   <tr>
+   <td><textarea ng-model="desc" name="Text" cols="40" rows="5" placeholder = "Write Your Feedbacks" ></textarea></td>
+   </tr>
+   <tr>
+   <td><button ng-click ="send()">Send</button></td>
+    </tr>
+     <div>
+        <ul>
+
+            <li ng-repeat="i in descArr">
+               <span>{{i}}</span>
+
+            </li>
+        </ul>
+    </div>
+    </div>
     
+    </table>
+
+
 </body>
 </html>
