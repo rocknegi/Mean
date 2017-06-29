@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>CRUD</title>
+    <script src = "libs/angular.min.js"></script>
+    <script src ="js/js.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/factory.js"></script>
+    <script src="js/controller.js"></script>
+   
 </head>
-<body>
+<body ng-app="myApp" ng-controller = "myctrl">
     <fieldset>
         <legend>ZZ</legend>
         <table>
@@ -14,7 +20,7 @@
            </td>
             </tr>
             <tr>
-                <td><input type="text" placeholder="Enter your name"></td>
+                <td><input type="text" placeholder="Enter your name" ng-model = "name"></td>
             </tr>
             
             
@@ -24,12 +30,12 @@
                   </td>
                   </tr>
                   <tr>
-                       <td><textarea name="" id="" cols="30" rows="10"></textarea></td>
+                       <td><textarea name="" id="" cols="30" rows="10" ng-model="desc"></textarea></td>
                   </tr>
                   
                   <tr>
                       <td>
-                          <button>Add</button>
+                          <button ng-click="add()">Add</button>
                           <button>Delete</button>
                           <button>save</button>
                           
@@ -53,6 +59,11 @@
 				</tr>
 			</thead>
 			<tbody>
+			<tr ng-repeat = "i in item">
+			    <td>{{i.id}}</td>
+			    <td>{{i.name}}</td>
+			    <td>{{i.desc}}</td>
+			</tr>
 				
 			</tbody>
         </table>
