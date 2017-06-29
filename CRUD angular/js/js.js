@@ -1,5 +1,7 @@
-function Item(id, name, desc){
-	this.id = id;
+class Item{
+    constructor(id, name, desc) {
+    this.id = id;
 	this.name = name;
 	this.desc = desc;
-	}
+}
+}
