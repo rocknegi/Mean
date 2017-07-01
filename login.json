@@ -2,24 +2,24 @@
 "creds":[
 {
 
-"name1":"rohit",
-"pass1":"rohit123",
+"name":"rohit",
+"pass":"rohit123",
 
 
-"name2":"danny",
-"pass2":"danny123",
+"name":"danny",
+"pass":"danny123",
 
 
-"name3":"james",
-"pass3":"james123",
+"name":"james",
+"pass":"james123",
 
 
-"name4":"jonny",
-"pass4":"jonny123",
+"name":"jonny",
+"pass":"jonny123",
 
 
-"name5":"charles",
-"pass5":"charles123"
+"name":"charles",
+"pass":"charles123"
 }
 
 ]
