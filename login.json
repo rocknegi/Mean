@@ -1,23 +1,27 @@
 {
-
-{
+"one": {
 
 "name":"rohit",
-"pass":"rohit123",
-
+"pass":"rohit123"
+},
+  
+"two": {
 
 "name":"danny",
-"pass":"danny123",
+"pass":"danny123"
+},
 
-
+"three": {
 "name":"james",
-"pass":"james123",
+"pass":"james123"
+},
 
-
+"four": {
 "name":"jonny",
-"pass":"jonny123",
+"pass":"jonny123"
+},
 
-
+"five": {
 "name":"charles",
 "pass":"charles123"
 }
