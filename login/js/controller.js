@@ -1,4 +1,4 @@
-app.controller("myctrl",($scope,myfactory)=>{
+app.controller("myctrl",($scope,myfactory,)=>{
         var promise = myfactory.get();
 
         promise.then(function(data){
@@ -14,6 +14,11 @@ app.controller("myctrl",($scope,myfactory)=>{
                      if (arr[i].one.name === val||arr[i].two.name === val||arr[i].three.name==pass||arr[i].four.name==pass||arr[i].five.name ==pass)
                  {
                      console.log("true");
+//                     $scope.store = $localStorage;
+//                     store.name = val;
+                     localStorage.setItem('session', val);
+                     var x = location.href="pages/welcome.html"
+                     alert("Logging you in")
 
                  return true;
         }

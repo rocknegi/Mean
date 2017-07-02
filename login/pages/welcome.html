@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src=../libs/angular.min.js></script>
+    <script src ="../libs/ngStorage.min.js"></script>
+    <script>
+        var app2 = angular.module("myApp2",[]);
+        app2.controller("myctrl2",($scope)=>{
+           var val = localStorage['session'];
+           localStorage.removeItem( 'session');
+            $scope.welcome = val;
+        });
+
+
+    </script>
+</head>
+
+<body ng-app = "myApp2" ng-controller = "myctrl2">
+   Hello  {{welcome}}
+</body>
+</html>
