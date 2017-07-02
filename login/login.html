@@ -21,14 +21,14 @@
     </tr>
 
     <tr>
-       <td><input type="text" placeholder="Enter your pass"></td>
+       <td><input type="text" placeholder="Enter your name" ng-model="id"></td>
     </tr>
 
     <tr>
         <td>Password</td>
     </tr>
     <tr>
-        <td><input type="text" placeholder="Enter your pass"></td>
+        <td><input type="text" placeholder="Enter your pass" ng-model="pass"></td>
     </tr>
     <tr>
         <td></td>
@@ -36,8 +36,10 @@
 
     <tr>
 
-        <td><button ng-click="submit()">Submit</button></td>
+        <td><button ng-click="submit(id)">Submit</button></td>
     </tr>
+
+
 
     </table>
 
