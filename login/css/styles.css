@@ -3,3 +3,40 @@
     border: 3px solid green;
     text-align: center;
 }
+.circle{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    left: 1200px;
+ 
+}
+.red{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: red;
+    text-align: center;
+    position: relative;
+    left: 1200px;
+ 
+}
+
+.selected{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: green;
+    text-align: center;
+    position: relative;
+    left: 1200px;
+    
+}
+
+
+.align{
+    overflow: hidden;
+    white-space: nowrap;
+}
+

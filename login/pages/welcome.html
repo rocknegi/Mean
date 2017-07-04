@@ -5,6 +5,7 @@
     <title>Document</title>
     <script src="../libs/angular.min.js"></script>
     <script src="../libs/angular-route.min.js"></script>
+    <link rel="stylesheet" href="../css/styles.css">
 
     <script>
         var app2 = angular.module("myApp2",["ngRoute"]);
@@ -13,6 +14,8 @@
            localStorage.removeItem( 'session');
             $scope.welcome = val;
             $scope.id = 0;
+$scope.clicked = true;
+$scope.answered = false;
             console.log(localStorage.getItem('session',val));
             var promise = myfactory.get();
         promise.then(function(data){
@@ -23,14 +26,7 @@
                   angular.forEach($scope.result, function(i,data){
                   arr.push($scope.result);
                       var id =0;
-                                  
-            
-
-      
-                      
-
-
-
+  
 })
                 },function(err){
 				$scope.result  = err;
@@ -47,6 +43,7 @@ $scope.next=()=>{
     console.log($scope.id1);
   $scope.id1++;
      $scope.id2++;
+     $scope.change();
     
 },
 $scope.prev=()=>{
@@ -54,11 +51,14 @@ $scope.prev=()=>{
      $scope.id1--;
      $scope.id2--; 
     
-}
-
-      
-                                  
-
+},
+    $scope.change=()=>{
+       
+         $scope.answered = true;
+       
+    }
+        
+                      
 
         });
         
@@ -92,7 +92,27 @@ $scope.prev=()=>{
 <body ng-app = "myApp2" ng-controller = "myctrl2">
 <fieldset>
     <legend>ZZ KBC</legend>
+      <div class="align">
+            
+          <div class="circle" ng-class={"red":clicked,"selected":answered}>
+               1  
+          </div>
+              <div class="circle" ng-class={"red":clicked,"selected":answered}>
+               2
+          </div>
+              <div class="circle" ng-class={"red":clicked,"selected":answered}>
+               3 
+          </div>
+              <div class="circle" ng-class={"red":clicked,"selected":answered}>
+               4 
+          </div>
+              <div class="circle" ng-class={"red":clicked,"selected":answered}>
+               5 
+          </div>
+        </div>
+              
         <table>
+             
             <tr>
                 <td>Welcome to KBC  {{welcome}}</td>
             </tr>
@@ -104,39 +124,35 @@ $scope.prev=()=>{
            </tr> 
          
             <tr>
-                <td ng-model="id1">1.{{result[id1].question}} </td>
+                <td ng-model="id1">Q.{{result[id1].question}} </td>
             </tr>
             <tr>
                   
                 <td ng-model="id2" >{{result[id2].choices}}</td>
                 
             </tr>
-           <ul>
-               <li ng-repeat = "i in options">
-                   {{options}}
-               </li>
-           </ul>
+           
             <tr>
         <td>
-           <input type="radio" > A
+           <input type="radio" name="question" value="A" > A
 
         </td>
     </tr>
     <tr>
         <td>
-           <input type="radio" > B
+           <input type="radio" name="question" value="B" > B
 
         </td>
     </tr>
     <tr>
         <td>
-           <input type="radio" > C
+           <input type="radio" name="question" value="C" > C
 
         </td>
     </tr>
     <tr>
         <td>
-           <input type="radio" > D
+           <input type="radio" name="question" value="D" > D
 
         </td>
     </tr>
@@ -146,18 +162,14 @@ $scope.prev=()=>{
          <tr>
              <td>
            <button ng-click ="prev(id1,id2)" ng-if="id1>0">PREVIOUS</button>
-           <button ng-click ="next(id1,id2)" ng-if="id1<4">NEXT</button>
+           <button  ng-click ="next(id1,id2)" ng-if="id1<4">NEXT</button>
              </td>
          </tr>
-           
-           
-            
-          
-           </span>       
-            
-            
+          </span>       
+                        
             
         </table>
+    
     
 </fieldset>
             
