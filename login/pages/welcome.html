@@ -3,44 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <script src=../libs/angular.min.js></script>
+    <script src="../libs/angular.min.js"></script>
     <script src="../libs/angular-route.min.js"></script>
 
     <script>
         var app2 = angular.module("myApp2",["ngRoute"]);
-        app2.controller("myctrl2",($scope)=>{
+        app2.controller("myctrl2",($scope,myfactory)=>{
            var val = localStorage['session'];
            localStorage.removeItem( 'session');
             $scope.welcome = val;
+            $scope.id = 0;
             console.log(localStorage.getItem('session',val));
-            $scope.start = () =>{
-                var x = location.href="questions.html"
-            }
+            var promise = myfactory.get();
+        promise.then(function(data){
+				$scope.result= data;
+             console.log($scope.result);
+            console.log($scope.result.question1);
+                  var arr=[];
+                  angular.forEach($scope.result, function(i,data){
+                  arr.push($scope.result);
+                      var id =0;
+                                  
+            
+
+      
+                      
+
+
+
+})
+                },function(err){
+				$scope.result  = err;
+			});
+            
+            $scope.start=()=>{
+  $scope.id1=0;
+  $scope.id2=0;
+      console.log($scope.id1);
+},
+          
+            
+$scope.next=()=>{
+    console.log($scope.id1);
+  $scope.id1++;
+     $scope.id2++;
+    
+},
+$scope.prev=()=>{
+    console.log($scope.id1);
+     $scope.id1--;
+     $scope.id2--; 
+    
+}
+
+      
+                                  
+
+
         });
-        app2.config(function($routeProvider,$locationProvider){
-	        $locationProvider.hashPrefix('');
-              $routeProvider.when("/Questions",{
-        templateUrl:"questions.html",
-        controller:"myctrl3"
-             });
-});
+        
+         app2.factory("myfactory",($http,$q)=>{
+		var object = {
+            get(){
+                var pr = $q.defer();
+				var url = "questions.json";
+				$http.get(url).then(function(data){
+					pr.resolve(data.data);
+				},function(err){
+					pr.reject(err);
+				});
+				return pr.promise;
+            },
+            
+            
 
 
+        }
+		return object;
+	});
+        
 
 
     </script>
+    
+
 </head>
 
 <body ng-app = "myApp2" ng-controller = "myctrl2">
+<fieldset>
+    <legend>ZZ KBC</legend>
+        <table>
+            <tr>
+                <td>Welcome to KBC  {{welcome}}</td>
+            </tr>
+           <tr>
+               <td>
+                   <button ng-click="start()">START</button>
+                   
+               </td>
+           </tr> 
+         
+            <tr>
+                <td ng-model="id1">1.{{result[id1].question}} </td>
+            </tr>
+            <tr>
+                  
+                <td ng-model="id2" >{{result[id2].choices}}</td>
+                
+            </tr>
+           <ul>
+               <li ng-repeat = "i in options">
+                   {{options}}
+               </li>
+           </ul>
+            <tr>
+        <td>
+           <input type="radio" > A
 
-           Hello  {{welcome}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <input type="radio" > B
 
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <input type="radio" > C
 
-  <ul>
-       <li><a ng-href="#/Questions">Questions</a></li>
-  </ul>
-   <div id="main">
-  <ng-view></ng-view>
-    </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <input type="radio" > D
+
+        </td>
+    </tr>
+           
+     <span>
+        
+         <tr>
+             <td>
+           <button ng-click ="prev(id1,id2)" ng-if="id1>0">PREVIOUS</button>
+           <button ng-click ="next(id1,id2)" ng-if="id1<4">NEXT</button>
+             </td>
+         </tr>
+           
+           
+            
+          
+           </span>       
+            
+            
+            
+        </table>
+    
+</fieldset>
+            
 </body>
 </html>
