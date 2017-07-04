@@ -15,7 +15,7 @@
             $scope.welcome = val;
             $scope.id = 0;
 $scope.clicked = true;
-$scope.answered = false;
+$scope.answered1= false;
             console.log(localStorage.getItem('session',val));
             var promise = myfactory.get();
         promise.then(function(data){
@@ -54,7 +54,7 @@ $scope.prev=()=>{
 },
     $scope.change=()=>{
        
-         $scope.answered = true;
+         $scope.answered1 = true;
        
     }
         
@@ -94,19 +94,19 @@ $scope.prev=()=>{
     <legend>ZZ KBC</legend>
       <div class="align">
             
-          <div class="circle" ng-class={"red":clicked,"selected":answered}>
+          <div class="circle" ng-class={"red":clicked,"selected":answered1}>
                1  
           </div>
-              <div class="circle" ng-class={"red":clicked,"selected":answered}>
+              <div class="circle" ng-class={"red":clicked,"selected":answered2}>
                2
           </div>
-              <div class="circle" ng-class={"red":clicked,"selected":answered}>
+              <div class="circle" ng-class={"red":clicked,"selected":answered3}>
                3 
           </div>
-              <div class="circle" ng-class={"red":clicked,"selected":answered}>
+              <div class="circle" ng-class={"red":clicked,"selected":answered4}>
                4 
           </div>
-              <div class="circle" ng-class={"red":clicked,"selected":answered}>
+              <div class="circle" ng-class={"red":clicked,"selected":answered5}>
                5 
           </div>
         </div>
