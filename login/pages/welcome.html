@@ -16,12 +16,15 @@
             $scope.id = 0;
 $scope.clicked = true;
 $scope.answered1= false;
+$scope.answered2= false;
+  $scope.answered3= false;
+  $scope.answered4= false;
             console.log(localStorage.getItem('session',val));
             var promise = myfactory.get();
         promise.then(function(data){
 				$scope.result= data;
              console.log($scope.result);
-            console.log($scope.result.question1);
+           // console.log($scope.result.question1);
                   var arr=[];
                   angular.forEach($scope.result, function(i,data){
                   arr.push($scope.result);
@@ -43,7 +46,14 @@ $scope.next=()=>{
     console.log($scope.id1);
   $scope.id1++;
      $scope.id2++;
-     $scope.change();
+     $scope.change1(); 
+    if($scope.answered1){$scope.change2();}
+    else{$scope.change2();}
+    if($scope.answered2){$scope.change3();}
+    else{$scope.change3();}
+    if($scope.answered3){$scope.change4();}
+    else{$scope.change4();}
+    
     
 },
 $scope.prev=()=>{
@@ -52,9 +62,37 @@ $scope.prev=()=>{
      $scope.id2--; 
     
 },
-    $scope.change=()=>{
+    $scope.change1=()=>{
+        console.log("radio VAlue Is",$scope.radioValue);
+       if($scope.radioValue == $scope.result[0].answer){ 
+           $scope.answered1 = true;
+           
+                  }
+        
        
-         $scope.answered1 = true;
+    },
+        $scope.change2=()=>{
+        console.log("radio VAlue Is",$scope.radioValue);
+       if($scope.radioValue == $scope.result[1].answer){ 
+           $scope.answered2 = true;
+       }
+        
+       
+    },
+        $scope.change3=()=>{
+        console.log("radio VAlue Is",$scope.radioValue);
+       if($scope.radioValue == $scope.result[2].answer){ 
+           $scope.answered3 = true;
+       }
+        
+       
+    },
+        $scope.change4=()=>{
+        console.log("radio VAlue Is",$scope.radioValue);
+       if($scope.radioValue == $scope.result[3].answer){ 
+           $scope.answered4 = true;
+       }
+        
        
     }
         
@@ -105,11 +143,8 @@ $scope.prev=()=>{
           </div>
               <div class="circle" ng-class={"red":clicked,"selected":answered4}>
                4 
-          </div>
-              <div class="circle" ng-class={"red":clicked,"selected":answered5}>
-               5 
-          </div>
-        </div>
+        
+        </div> </div>
               
         <table>
              
@@ -134,25 +169,25 @@ $scope.prev=()=>{
            
             <tr>
         <td>
-           <input type="radio" name="question" value="A" > A
+           <input type="radio" name="question" value="0" ng-model="$parent.radioValue"> A
 
         </td>
     </tr>
     <tr>
         <td>
-           <input type="radio" name="question" value="B" > B
+           <input type="radio" name="question" value="1" ng-model="$parent.radioValue"> B
 
         </td>
     </tr>
     <tr>
         <td>
-           <input type="radio" name="question" value="C" > C
+           <input type="radio" name="question"value="2" ng-model="$parent.radioValue"> C
 
         </td>
     </tr>
     <tr>
         <td>
-           <input type="radio" name="question" value="D" > D
+           <input type="radio" name="question" value="3" ng-model="$parent.radioValue"> D
 
         </td>
     </tr>
