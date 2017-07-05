@@ -7,17 +7,17 @@
 	},
 	{
 		"question": "Who has been appointed as the new Attorney General of India?",
-        "choices": ["A P J Thomas", "B M N Krishnamani", "C K K Venugopal", "D Rohington Nariman"],
+        "choices": ["A:P J Thomas", "B:M N Krishnamani", "C:K K Venugopal", "D:Rohington Nariman"],
         "answer":2
 	},
 	{
 		"question": "Which of the following Indian American personalities will be honoured with the 2017 “Great Immigrants: The Pride of America” award?",
-        "choices": ["A Shantanu Narayen and Vivek Murthy", "B Sunder Pichai and Hari Sreenivasan", "C Bharati Mukherjee and Vikram Malhotra", "D Satya Narayan and Vikram Murthy"],
+        "choices": ["A:Shantanu Narayen and Vivek Murthy", "B:Sunder Pichai and Hari Sreenivasan", "C:Bharati Mukherjee and Vikram Malhotra", "D:Satya Narayan and Vikram Murthy"],
         "answer":0
 	},
 	{
 		"question": "Who has been appointed as the new Economic Relations Secretary in the Ministry of External Affairs (MEA)?",
-        "choices": ["A Vinesh Rathore", "B Madhu Tamble", "C Kirti Singh", "D Vijay Gokhale"],
+        "choices": ["A:Vinesh Rathore", "B:Madhu Tamble", "C:Kirti Singh", "D:Vijay Gokhale"],
         "answer":3
 	}
 
