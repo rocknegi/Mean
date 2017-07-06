@@ -3,47 +3,34 @@ app.controller("myctrl",($scope,myfactory,)=>{
 
         promise.then(function(data){
 				$scope.result= data;
-                  var arr=[];
-                  angular.forEach($scope.result, function(i,data){
-                  arr.push($scope.result);
-
-                   $scope.submit=(id,pass)=>{
-                        alert("Searching for " + id);
-                       console.log(arr);
-                      for (var i = 0; i < arr.length; i++) {
-                     if (arr[i].one.name === id||arr[i].two.name === id||arr[i].three.name==id||arr[i].four.name==id||arr[i].five.name ==id)
-                 {
-                     if (arr[i].one.pass === pass||arr[i].two.pass === pass||arr[i].three.pass==pass||arr[i].four.pass==pass||arr[i].five.pass ==pass)
-                         {
-                     console.log("true");
-//                     $scope.store = $localStorage;
-//                     store.name = val;
-                     localStorage.setItem('session',id);
-                     console.log(localStorage.getItem('session',id));
-                     var x = location.href="pages/welcome.html";
-                     alert("Logging you in");
-
-                 return true;
-        }
-                 }
-                     else {
-                         console.log("false");
-                         alert("wrong id or pass");
-                        return false;
-
-                     }
-    }
-                     }
-
-
-
-
-})
-
-                },function(err){
+            },function(err){
 				$scope.result  = err;
 			});
+         
+                  
 
+                   $scope.submit=(id,pass)=>{
+                        alert("Searching for " +id);
+                       console.log($scope.result);
+                       for(var i in $scope.result){
+                           //console.log($scope.result[i]);
+                           if($scope.result[i].name==id && $scope.result[i].pass==pass){
+                               console.log("true");
+                               alert("Logging you in Mr " +id);
+                               var x = location.href="pages/welcome.html";
+                               break;
+                           }
+                           else                        
+                          {
+                         
+                         alert("wrong id or pass");
+                         break;
+                        }
+                           }
+                       
+}
+
+         
 
 
 	});
