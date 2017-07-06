@@ -6,20 +6,21 @@
     <script src="../libs/angular.min.js"></script>
     <script src="../libs/angular-route.min.js"></script>
     <link rel="stylesheet" href="../css/styles.css">
+    <script src="../libs/ngStorage.min.js"></script>
+    
 
     <script>
-        var app2 = angular.module("myApp2",["ngRoute"]);
-        app2.controller("myctrl2",($scope,myfactory)=>{
-           var val = localStorage['session'];
-           localStorage.removeItem( 'session');
-            $scope.welcome = val;
+        var app2 = angular.module("myApp2",["ngStorage"]);
+        app2.controller("myctrl2",($scope,$localStorage,myfactory)=>{
+           
+            $scope.welcome = $localStorage;
             $scope.id = 0;
 $scope.clicked = true;
 $scope.answered1= false;
 $scope.answered2= false;
   $scope.answered3= false;
   $scope.answered4= false;
-            console.log(localStorage.getItem('session',val));
+            
             var promise = myfactory.get();
         promise.then(function(data){
 				$scope.result= data;
@@ -150,7 +151,7 @@ $scope.prev=()=>{
         <table>
              
             <tr>
-                <td>Welcome to KBC  {{welcome}}</td>
+                <td>Welcome to KBC  {{welcome.id}}</td>
             </tr>
            <tr>
                <td>

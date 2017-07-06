@@ -1,4 +1,4 @@
-app.controller("myctrl",($scope,myfactory,)=>{
+app.controller("myctrl",($scope,myfactory,$localStorage,)=>{
         var promise = myfactory.get();
 
         promise.then(function(data){
@@ -18,6 +18,9 @@ app.controller("myctrl",($scope,myfactory,)=>{
                                console.log("true");
                                alert("Logging you in Mr " +id);
                                var x = location.href="pages/welcome.html";
+                               $scope.storage = $localStorage;
+                               $scope.storage.id=id;
+                               
                                break;
                            }
                            else                        
