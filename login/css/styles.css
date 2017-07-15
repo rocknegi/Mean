@@ -41,7 +41,7 @@
 }
 
 body{
-    background-image: url("/img/kbc.jpg");
+    background-image: url("../img/kbc.jpg");
     color: yellow;
     font-weight: bold;
 }
