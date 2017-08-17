@@ -16,10 +16,7 @@
             $scope.welcome = $localStorage;
             $scope.id = 0;
 $scope.clicked = true;
-$scope.answered1= false;
-$scope.answered2= false;
-  $scope.answered3= false;
-  $scope.answered4= false;
+
             
             var promise = myfactory.get();
         promise.then(function(data){
@@ -29,7 +26,7 @@ $scope.answered2= false;
                   var arr=[];
                   angular.forEach($scope.result, function(i,data){
                   arr.push($scope.result);
-                      var id =0;
+                      
   
 })
                 },function(err){
@@ -39,22 +36,18 @@ $scope.answered2= false;
             $scope.start=()=>{
   $scope.id1=0;
   $scope.id2=0;
-      console.log($scope.id1);
+//      console.log($scope.id1);
 },
+    
           
             
 $scope.next=()=>{
-    console.log($scope.id1);
+//    console.log($scope.id1);
+$scope.color();
+    
   $scope.id1++;
      $scope.id2++;
-     $scope.change1(); 
-    if($scope.answered1){$scope.change2();}
-    else{$scope.change2();}
-    if($scope.answered2){$scope.change3();}
-    else{$scope.change3();}
-    if($scope.answered3){$scope.change4();}
-    else{$scope.change4();}
-    
+
     
 },
 $scope.prev=()=>{
@@ -62,42 +55,41 @@ $scope.prev=()=>{
      $scope.id1--;
      $scope.id2--; 
     
-},
-    $scope.change1=()=>{
-        console.log("radio VAlue Is",$scope.radioValue);
-       if($scope.radioValue == $scope.result[0].answer){ 
-           $scope.answered1 = true;
-           
-                  }
-        
-       
-    },
-        $scope.change2=()=>{
-        console.log("radio VAlue Is",$scope.radioValue);
-       if($scope.radioValue == $scope.result[1].answer){ 
-           $scope.answered2 = true;
-       }
-        
-       
-    },
-        $scope.change3=()=>{
-        console.log("radio VAlue Is",$scope.radioValue);
-       if($scope.radioValue == $scope.result[2].answer){ 
-           $scope.answered3 = true;
-       }
-        
-       
-    },
-        $scope.change4=()=>{
-        console.log("radio VAlue Is",$scope.radioValue);
-       if($scope.radioValue == $scope.result[3].answer){ 
-           $scope.answered4 = true;
-       }
-        
-       
+}   
+$scope.no=0;
+
+    $scope.color=()=>{   
+        if($scope.no==0){
+            
+            if($scope.radioValue)
+               $scope.answered0=true;
+            
+}
+       if($scope.no==1){
+          if($scope.radioValue)
+             $scope.answered1=true;
+      }
+ 
+      if($scope.no==2){
+         if($scope.radioValue)
+              $scope.answered2=true;
+  }
+
+      if($scope.no==3){
+         if($scope.radioValue)
+             $scope.answered3=true;
     }
-        
-                      
+ 
+      if($scope.no==4){
+          if($scope.radioValue)
+              $scope.answered4=true;
+  }
+
+     $scope.no++;
+
+      
+    }
+
 
         });
         
@@ -133,17 +125,17 @@ $scope.prev=()=>{
     <legend>ZZ KBC</legend>
       <div class="align">
             
-          <div class="circle" ng-class={"red":clicked,"selected":answered1}>
+          <div class="circle" ng-class={"red":clicked,"green":answered0}>
                1  
           </div>
-              <div class="circle" ng-class={"red":clicked,"selected":answered2}>
+              <div class="circle" ng-class={"red":clicked,"green":answered1}>
                2
           </div>
-              <div class="circle" ng-class={"red":clicked,"selected":answered3}>
+              <div class="circle" ng-class={"red":clicked,"green":answered2}>
                3 
           </div>
-              <div class="circle" ng-class={"red":clicked,"selected":answered4}>
-               4 
+              <div class="circle" ng-class={"red":clicked,"green":answered3}>
+               4
         
         </div> 
              </div>
@@ -168,28 +160,29 @@ $scope.prev=()=>{
                 <td ng-model="id2" >{{result[id2].choices}}</td>
                 
             </tr>
+
            
             <tr>
         <td>
-           <input type="radio" name="question" value="0" ng-model="$parent.radioValue"> A
+           <input type="radio" name="question" value="0" ng-model="$parent.radioValue" ng-dblclick = "checked = false"> A
 
         </td>
     </tr>
     <tr>
         <td>
-           <input type="radio" name="question" value="1" ng-model="$parent.radioValue"> B
+           <input type="radio" name="question" value="1" ng-model="$parent.radioValue" ng-dblclick= "checked = null"> B
 
         </td>
     </tr>
     <tr>
         <td>
-           <input type="radio" name="question"value="2" ng-model="$parent.radioValue"> C
+           <input type="radio" name="question"value="2" ng-model="$parent.radioValue" ng-dblclick = "checked = null"> C
 
         </td>
     </tr>
     <tr>
         <td>
-           <input type="radio" name="question" value="3" ng-model="$parent.radioValue"> D
+           <input type="radio" name="question" value="3" ng-model="$parent.radioValue" ng-dblclick= "checked = null"> D
 
         </td>
     </tr>
