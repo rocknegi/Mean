@@ -85,10 +85,14 @@ $scope.no=0;
               $scope.answered4=true;
   }
 
-     $scope.no++;
-
+    
+$scope.no++;
       
     }
+     $scope.deselect=()=>{
+         console.log("hola")
+         $scope.radioValue=false;
+     }
 
 
         });
@@ -164,25 +168,25 @@ $scope.no=0;
            
             <tr>
         <td>
-           <input type="radio" name="question" value="0" ng-model="$parent.radioValue" ng-dblclick = "checked = false"> A
+           <input type="radio" name="question" value="0" ng-model="radioValue"> A
 
         </td>
     </tr>
     <tr>
         <td>
-           <input type="radio" name="question" value="1" ng-model="$parent.radioValue" ng-dblclick= "checked = null"> B
+           <input type="radio" name="question" value="1" ng-model="radioValue"> B
 
         </td>
     </tr>
     <tr>
         <td>
-           <input type="radio" name="question"value="2" ng-model="$parent.radioValue" ng-dblclick = "checked = null"> C
+           <input type="radio" name="question"value="2" ng-model="radioValue" > C
 
         </td>
     </tr>
     <tr>
         <td>
-           <input type="radio" name="question" value="3" ng-model="$parent.radioValue" ng-dblclick= "checked = null"> D
+           <input type="radio" name="question" value="3" ng-model="radioValue" > D
 
         </td>
     </tr>
@@ -193,6 +197,7 @@ $scope.no=0;
              <td>
            <button ng-click ="prev(id1,id2)" ng-if="id1>0">PREVIOUS</button>
            <button  ng-click ="next(id1,id2)" ng-if="id1<4">NEXT</button>
+            <button ng-click = "deselect()">deselect</button>
              </td>
          </tr>
           </span>       
