@@ -15,7 +15,7 @@
            
             $scope.welcome = $localStorage;
             $scope.id = 0;
-$scope.clicked = true;
+            $scope.clicked = true;
 
             
             var promise = myfactory.get();
@@ -47,6 +47,7 @@ $scope.color();
     
   $scope.id1++;
      $scope.id2++;
+    $scope.no++;
 
     
 },
@@ -54,6 +55,7 @@ $scope.prev=()=>{
     console.log($scope.id1);
      $scope.id1--;
      $scope.id2--; 
+    $scope.no--;
     
 }   
 $scope.no=0;
@@ -86,7 +88,7 @@ $scope.no=0;
   }
 
     
-$scope.no++;
+
       
     }
      $scope.deselect=()=>{
@@ -194,15 +196,15 @@ $scope.no++;
      <span>
         
          <tr>
-             <td>
+            <td>
            <button ng-click ="prev(id1,id2)" ng-if="id1>0">PREVIOUS</button>
            <button  ng-click ="next(id1,id2)" ng-if="id1<4">NEXT</button>
-            <button ng-click = "deselect()">deselect</button>
+            <button ng-click = "deselect()" ng-if="id1<4">deselect </button>
              </td>
          </tr>
+         
           </span>       
                         
-            
         </table>
     
     
