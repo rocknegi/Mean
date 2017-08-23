@@ -16,6 +16,7 @@
             $scope.welcome = $localStorage;
             $scope.id = 0;
             $scope.clicked = true;
+            $scope.count=0;
 
             
             var promise = myfactory.get();
@@ -38,13 +39,19 @@
   $scope.id2=0;
 //      console.log($scope.id1);
 },
-    
-          
+        $scope.check=()=>{
             
+         if($scope.result[$scope.id1].answer==$scope.radioValue){
+             $scope.count++;
+         }
+           console.log($scope.count)
+ },
+
+                  
 $scope.next=()=>{
 //    console.log($scope.id1);
 $scope.color();
-    
+$scope.check();    
   $scope.id1++;
      $scope.id2++;
     $scope.no++;
@@ -57,7 +64,7 @@ $scope.prev=()=>{
      $scope.id2--; 
     $scope.no--;
     
-}   
+},   
 $scope.no=0;
 
     $scope.color=()=>{   
@@ -90,13 +97,14 @@ $scope.no=0;
     
 
       
-    }
+    },
      $scope.deselect=()=>{
          console.log("hola")
          $scope.radioValue=false;
      }
-
-
+        
+     
+     
         });
         
          app2.factory("myfactory",($http,$q)=>{
@@ -162,8 +170,17 @@ $scope.no=0;
                 <td ng-model="id1">Q.{{result[id1].question}} </td>
             </tr>
             <tr>
+                 <td>
+                  <ul>
+                      <li >{{result[id2].choices[0]}}</li>
+                      <li>{{result[id2].choices[1]}}</li>
+                      <li>{{result[id2].choices[2]}}</li>
+                      <li>{{result[id2].choices[3]}}</li>
+                                    
                   
-                <td ng-model="id2" >{{result[id2].choices}}</td>
+                  </ul>
+                  </td>
+<!--                <td ng-model="id2" >{{result[id2].choices}}</td>-->
                 
             </tr>
 
@@ -200,10 +217,16 @@ $scope.no=0;
            <button ng-click ="prev(id1,id2)" ng-if="id1>0">PREVIOUS</button>
            <button  ng-click ="next(id1,id2)" ng-if="id1<4">NEXT</button>
             <button ng-click = "deselect()" ng-if="id1<4">deselect </button>
+            <button  ng-model="submit" ng-if="id1>0" > Submit</button>
+       
              </td>
          </tr>
          
-          </span>       
+          </span>  
+            <div ng-show="submit">
+            <tr><td> <h1>your score is {{score}}</h1></td></tr>
+           
+            </div>     
                         
         </table>
     
