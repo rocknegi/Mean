@@ -102,8 +102,10 @@ $scope.no=0;
          console.log("hola")
          $scope.radioValue=false;
      }
-        
      
+        $scope.sent=()=>{   
+            $scope.score=$scope.count;
+            return true;}
      
         });
         
@@ -214,11 +216,12 @@ $scope.no=0;
         
          <tr>
             <td>
+              <div ng-show="!submit">
            <button ng-click ="prev(id1,id2)" ng-if="id1>0">PREVIOUS</button>
            <button  ng-click ="next(id1,id2)" ng-if="id1<4">NEXT</button>
             <button ng-click = "deselect()" ng-if="id1<4">deselect </button>
-            <button  ng-model="submit" ng-if="id1>0" > Submit</button>
-       
+            <button  ng-click="sent()" ng-model="submit" ng-if="id1>0" > Submit</button>
+                </div>
              </td>
          </tr>
          
