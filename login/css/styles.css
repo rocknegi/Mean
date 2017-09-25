@@ -3,16 +3,17 @@
     border: 3px solid green;
     text-align: center;
 }
-.circle{
+
+.circle {
     width: 20px;
     height: 20px;
     border-radius: 50%;
     text-align: center;
     position: relative;
     left: 1200px;
- 
 }
-.red{
+
+.red {
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -20,9 +21,9 @@
     text-align: center;
     position: relative;
     left: 1200px;
- 
 }
-.green{
+
+.green {
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -30,10 +31,9 @@
     text-align: center;
     position: relative;
     left: 1200px;
- 
 }
 
-.selected{
+.selected {
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -41,19 +41,15 @@
     text-align: center;
     position: relative;
     left: 1200px;
-    
 }
 
-
-.align{
+.align {
     overflow: hidden;
     white-space: nowrap;
 }
 
-body{
+body {
     background-image: url("../img/kbc.jpg");
     color: yellow;
     font-weight: bold;
 }
-
-
