@@ -11,25 +11,28 @@ app.controller("myctrl",($scope,myfactory,$localStorage,)=>{
 
                    $scope.submit=(id,pass)=>{
                         alert("Searching for " +id);
-                       console.log($scope.result);
+                      // console.log($scope.result);
+                       var bool = false;
                        for(var i in $scope.result){
-                           //console.log($scope.result[i]);
+                          // console.log();
                            if($scope.result[i].name==id && $scope.result[i].pass==pass){
                                console.log("true");
                                alert("Logging you in Mr " +id);
                                var x = location.href="pages/welcome.html";
                                $scope.storage = $localStorage;
                                $scope.storage.id=id;
-                               
-                               break;
+                               bool = true;
+                              
                            }
-                           else                        
+                          
+                           }
+                        if(!bool)                        
                           {
-                         
+                                                     
                          alert("wrong id or pass");
-                         break;
+                        
+                        
                         }
-                           }
                        
 }
 

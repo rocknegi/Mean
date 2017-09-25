@@ -55,6 +55,7 @@ $scope.check();
   $scope.id1++;
      $scope.id2++;
     $scope.no++;
+    $scope.deselect();
 
     
 },
@@ -105,6 +106,7 @@ $scope.no=0;
      
         $scope.sent=()=>{   
             $scope.score=$scope.count;
+            $scope.message = "your score is"
             return true;}
      
         });
@@ -219,7 +221,7 @@ $scope.no=0;
               <div ng-show="!submit">
            <button ng-click ="prev(id1,id2)" ng-if="id1>0">PREVIOUS</button>
            <button  ng-click ="next(id1,id2)" ng-if="id1<4">NEXT</button>
-            <button ng-click = "deselect()" ng-if="id1<4">deselect </button>
+<!--            <button ng-click = "deselect()" ng-if="id1<4">deselect </button>-->
             <button  ng-click="sent()" ng-model="submit" ng-if="id1>0" > Submit</button>
                 </div>
              </td>
@@ -227,7 +229,7 @@ $scope.no=0;
          
           </span>  
             <div ng-show="submit">
-            <tr><td> <h1>your score is {{score}}</h1></td></tr>
+            <tr><td> <h1>{{message}} {{score}}</h1></td></tr>
            
             </div>     
                         
