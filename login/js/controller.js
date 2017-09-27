@@ -45,6 +45,7 @@ app2.controller("myctrl2", ($scope, $localStorage, myfactory) => {
     $scope.welcome = $localStorage;
     $scope.id = 0;
     $scope.clicked = true;
+    //console.log($scope.clicked);
     $scope.count = 0;
 
 
